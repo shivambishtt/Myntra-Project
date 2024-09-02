@@ -16,26 +16,12 @@ function HomeItem({ item }) {
                     <span className="discount">({item.discount_percentage}% OFF)</span>
                 </div>
 
-                {elementFound ? (
-                    <button
-                        type="button"
-                        className="btn btn-add-bag btn-danger"
-                        onClick={handleRemove}
-                    >
-                        <AiFillDelete /> Remove
-                    </button>
-                ) : (
-                    <button
-                        type="button"
-                        className="btn btn-add-bag btn-success"
-                        onClick={handleAddToBag}
-                    >
-                        <GrAddCircle /> Add to Bag
-                    </button>
-                )}
+                <button className='btn-add-bag' onClick={() => console.log("Item was clicked")} >
+                    Add To Bag
+                </button>
             </div>
 
-        </div>
+        </div >
     )
 }
 
