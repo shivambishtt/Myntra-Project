@@ -1,5 +1,13 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { bagSliceActions } from '../slice/bagSlice.js'
+
 function BagItem({ item }) {
+    const bag = useSelector((store) => store.bag)
+    const dispatch = useDispatch()
+    const handleCrossBtn = () => {
+        dispatch(bagSliceActions.removeFromBag(item.id))
+    }
     return (
         <>
             <div className="bag-item-container">
@@ -23,7 +31,7 @@ function BagItem({ item }) {
                     </div>
                 </div>
 
-                <div className="remove-from-cart" onclick="removeFromBag(${item.id})">X</div>
+                <div className="remove-from-cart" onClick={handleCrossBtn}>X</div>
             </div>
         </>
     )

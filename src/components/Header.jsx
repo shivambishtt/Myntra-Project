@@ -3,7 +3,11 @@ import { CgProfile } from "react-icons/cg";
 import { CiHeart } from "react-icons/ci";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
+
 function Header() {
+    const bag = useSelector((state) => state.bag)
     return (
         <div>
             <header>
@@ -36,7 +40,7 @@ function Header() {
                     <Link className="action_container" to="/bag">
                         <IoBagHandleOutline />
                         <span className="action_name"> Bag</span>
-                        <span className="bag-item-count">0</span>
+                        <span className="bag-item-count">{bag.length}</span>
                     </Link>
                 </div>
             </header>
